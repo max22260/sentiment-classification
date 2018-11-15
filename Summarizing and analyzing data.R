@@ -1,3 +1,8 @@
+#-----------------------------------------------------------------------------------------------------
+# author:   ahmed nagy radwan
+#-----------------------------------------------------------------------------------------------------
+
+
 # dataset : https://www.kaggle.com/c/sentiment-classification-on-large-movie-review/data
 
 #----------------------- install packeges -------------------
@@ -32,7 +37,7 @@ Neg_data <-read_dir('C:\\Users\\max22\\Desktop\\txt_mining\\train\\neg') #read n
                                                                                              #
 #--------------------------------------------------------------------------------------------#
 
-setwd("/home/max/Desktop/txt_mining/")
+setwd("Desktop/spring2018/txt_mining/")
 
 #--------------------------------------read Data---------------------------------------------#
 ## the read fun to read all files *.txt from  directory                                      #
@@ -80,7 +85,6 @@ all_data$X <- NULL
 all_data$lable  <- factor(all_data$lable)
 
 #-------------------------------------------------------------------------------------------------------
-
 #-------------------------------- summrize our data ----------------------------------------------------
 
 str(all_data) #structure of data
@@ -392,13 +396,10 @@ mmetric(knn_model,test1_data_model[,1],c("ACC","TPR","PRECISION","F1"))
 #*********************************** SVM **************************************
 library(caret)
 
-svm_model = svm(formula = y ~ . , data = train_data_model , 
+svm_classifier = svm(formula = y ~ . , data = train_data_model , 
                 type = "C-classification" , kernel = 'radial')
 
-library(caret)
 
-svm_classifier = train(form = y ~ . , data = train_data_model ,
-                       method = 'svmRadial' ,sigma =  0.005933641 )  
 
 ########################## prediction process 
 
